@@ -1,5 +1,8 @@
 # django-scrap-handler
 
+![django logo](https://miro.medium.com/max/1200/1*HVKOLLX7wprRbHTl2IPDcQ.png "Django")
+
+
 ## A web app to connect people to scrap collectors and users
 
 
@@ -11,4 +14,3 @@
 
 
 
-![django logo](https://medium.com/@DoorDash/tips-for-building-high-quality-django-apps-at-scale-a5a25917b2b)
