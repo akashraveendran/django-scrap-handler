@@ -11,4 +11,4 @@
 
 
 
-![django logo](https://medium.com/@DoorDash/tips-for-building-high-quality-django-apps-at-scale-a5a25917b2b "django image")
+![django logo](https://medium.com/@DoorDash/tips-for-building-high-quality-django-apps-at-scale-a5a25917b2b)
