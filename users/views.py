@@ -43,8 +43,13 @@ def signin(request):
             request.session["username"] = username
             request.session["password"] = password
             login(request, user)
-            return redirect("HomeScreen")
+            return redirect("index")
         else:
             messages.info(request, "Username or password incorrect ")
             return redirect("Signin")
     return render(request, "signin.html")
+
+
+def signout(request):
+    logout(request)
+    return redirect("signin")
