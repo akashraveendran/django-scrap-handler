@@ -5,10 +5,12 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
 from .forms import UserAddForm
+from .decorators import user_only
 
 # Create your views here.
 
 
+@user_only
 def index(request):
     return render(request, "index.html")
 
@@ -46,7 +48,7 @@ def signin(request):
             return redirect("index")
         else:
             messages.info(request, "Username or password incorrect ")
-            return redirect("Signin")
+            return redirect("signin")
     return render(request, "signin.html")
 
 
