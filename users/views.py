@@ -10,6 +10,10 @@ from .decorators import user_only, not_auth_user
 # Create your views here.
 
 
+def home(request):
+    return render(request, "home.html")
+
+
 @user_only
 def index(request):
     return render(request, "index.html")

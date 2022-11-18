@@ -7,7 +7,7 @@ def user_only(view_func):
         if request.user.is_authenticated:
             return view_func(request, *args, **kwargs)
         else:
-            return redirect('signin')
+            return redirect('home')
 
     return wrapper_function
 
