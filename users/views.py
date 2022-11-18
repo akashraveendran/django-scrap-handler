@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
 from .forms import UserAddForm
-from .decorators import user_only
+from .decorators import user_only, not_auth_user
 
 # Create your views here.
 
@@ -15,6 +15,7 @@ def index(request):
     return render(request, "index.html")
 
 
+@not_auth_user
 def signup(request):  # first get the user form from forms.py to render with signup.html
     signup_form = UserAddForm()
     if(request.method == "POST"):
@@ -36,6 +37,7 @@ def signup(request):  # first get the user form from forms.py to render with sig
     return render(request, "signup.html", {"signup_form": signup_form})
 
 
+@not_auth_user
 def signin(request):
     if request.method == "POST":
         username = request.POST["username"]
