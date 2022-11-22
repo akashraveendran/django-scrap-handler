@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap" rel="stylesheet">
     <title>Scrap handler</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static '/stylesheets/home.css' %}">
     <style>
         * {
@@ -24,16 +27,49 @@
             background: linear-gradient(to bottom, rgba(65, 65, 65, 0.7), rgba(65, 65, 65, 0.2));
             padding: 10px 0;
             display: flex;
-            justify-content: end;
+            justify-content: space-between;
+        }
+
+        #navbar .icon-group {
+            padding-left: 30px;
+        }
+
+        #navbar .nav-title {
+            margin: 0;
+            color: #fff;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .sub-title {
+            font-size: .8em;
+            color: rgb(219, 219, 219);
         }
 
         #nav-btn {
-            border: none;
+            border: 2px solid white;
             padding: 10px 20px;
             transform: translate(-50px);
             font-size: 1.5em;
             border-radius: 5px;
             background: rgb(156, 247, 201);
+            color: #530C61;
+            transition: transform 0.5s;
+        }
+
+        #nav-btn:hover {
+            transform: translate(-70px)
+        }
+
+        #banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner-title {
+            font-size: 3em;
+            text-transform: uppercase;
+            color: #fff;
         }
     </style>
 </head>
@@ -47,10 +83,18 @@
         footer
      -->
     <nav id="navbar">
+        <div class="icon-group">
+            <h1 class="nav-title">CleanSCRAPS &nbsp; <i class="fa-solid fa-recycle"></i></h1>
+            <span class="sub-title">SCRAP HANDLER SYSTEM</span>
+        </div>
         <button id="nav-btn">SIGN UP and get started</button>
     </nav>
+    <!-- find code for making background color black when the screen is scrolling -->
 
     <section id="banner" style='background: url("/static/images/green-leaves.jpg")'>
+        <h2 class="banner-title">
+            Reuse the past, Recycle the present, Save the future
+        </h2>
 
     </section>
     <section id="about-us">
