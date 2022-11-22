@@ -71,6 +71,38 @@
             text-transform: uppercase;
             color: #fff;
         }
+
+        #about-us {
+            min-height: 100vh;
+            padding: 100px;
+            background: linear-gradient(to top, rgb(188, 250, 188), rgb(133, 255, 133));
+        }
+
+        #about-title {
+            font-size: 2em;
+        }
+
+        .about-contents {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-para {
+            text-align: justify;
+            margin-right: 30px;
+        }
+
+        #contact-us {
+            min-height: 40vh;
+            background: rgb(65, 85, 67);
+            padding: 50px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 
@@ -98,9 +130,33 @@
 
     </section>
     <section id="about-us">
+        <h2 id="about-title">About Us</h2>
+        <div class="about-contents">
 
+            <p class="about-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim vero corrupti in
+                aliquid incidunt autem quam, sequi qui sunt corporis nostrum, reiciendis, sapiente recusandae placeat
+                dicta. Nulla eos iure impedit facilis et odit reiciendis perferendis excepturi totam dolores quas odio
+                doloribus,
+                nostrum fugit vel sit nihil quaerat nisi sapiente eveniet corrupti atque! Possimus, repellat libero
+                aspernatur dolorum nulla soluta animi commodi, quae labore ex maxime vel iusto perferendis officiis iste
+                obcaecati
+                quo vero. Laudantium molestias nam recusandae, vitae dolores quia, accusantium labore nobis deserunt
+                pariatur voluptatibus officia. Natus, quas dolore, ut magni molestiae sapiente facilis veniam labore
+                optio, quisquam architecto?</p>
+
+            <img src="https://industry.pulpandpaper-technology.com/articles/1504182590-top-methods-solid-waste-disposal-management.jpg"
+                alt="" class="about-image">
+
+        </div>
     </section>
-    <section id="footer">
+    <section id="contact-us">
+        <h2 id="contact-title">CONTACT US</h2>
+
+        <form action="" class="contact-form">
+            <input type="email" placeholder="Enter Your Email" required>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Enter Your message"></textarea>
+            <input type="submit" value="SUBMIT">
+        </form>
 
     </section>
 
