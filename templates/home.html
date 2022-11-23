@@ -97,11 +97,29 @@
             min-height: 40vh;
             background: rgb(65, 85, 67);
             padding: 50px;
+            color: #b6fdcb;
         }
 
         .contact-form {
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            min-width: 50%;
+            margin-bottom: 20px;
+            padding: 10px 10px;
+        }
+
+        .submit-btn {
+            background: #8fffb0;
+            border: none;
+            padding: 10px 0;
+            width: 51.5%;
         }
     </style>
 </head>
@@ -155,7 +173,7 @@
         <form action="" class="contact-form">
             <input type="email" placeholder="Enter Your Email" required>
             <textarea name="" id="" cols="30" rows="10" placeholder="Enter Your message"></textarea>
-            <input type="submit" value="SUBMIT">
+            <input class="submit-btn" type="submit" value="SUBMIT">
         </form>
 
     </section>
