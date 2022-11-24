@@ -4,19 +4,125 @@ body {
     padding: 0;
 }
 
+* {
+    font-family: 'Oswald', sans-serif;
+}
+
 #navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(to bottom, rgba(65, 65, 65, 0.3), rgba(65, 65, 65, 0.7));
+    background: linear-gradient(to bottom, rgba(65, 65, 65, 0.7), rgba(65, 65, 65, 0.2));
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
 }
 
-#banner {
-    height: 100vh;
+#navbar .icon-group {
+    padding-left: 30px;
+}
+
+#navbar .nav-title {
+    margin: 0;
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.sub-title {
+    font-size: .8em;
+    color: rgb(219, 219, 219);
 }
 
 #nav-btn {
     border: none;
+    border: 2px solid white;
     padding: 10px 20px;
+    transform: translate(-50px);
+    font-size: 1.5em;
+    border-radius: 5px;
+    background: rgb(156, 247, 201);
+    color: #530C61;
+    transition: transform 0.5s;
+}
+
+#nav-btn:hover {
+    transform: translate(-70px)
+}
+
+#banner {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-title {
+    font-size: 3em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#about-us {
+    min-height: 100vh;
+    padding: 100px;
+    background: linear-gradient(to top, rgb(188, 250, 188), rgb(133, 255, 133));
+}
+
+#about-title {
+    font-size: 2em;
+}
+
+.about-contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-para {
+    text-align: justify;
+    margin-right: 30px;
+}
+
+#contact-us {
+    min-height: 40vh;
+    background: rgb(65, 85, 67);
+    padding: 50px;
+    color: #b6fdcb;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.contact-form input,
+.contact-form textarea {
+    min-width: 50%;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+}
+
+.submit-btn {
+    background: #8fffb0;
+    border: none;
+    padding: 10px 0;
+    width: 51.5%;
+}
+
+#footer {
+    min-height: 20vh;
+    background: rgb(10, 37, 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e8ffef;
+}
+
+#footer h2 {
+    font-size: 30px;
+    text-decoration: underline;
 }
