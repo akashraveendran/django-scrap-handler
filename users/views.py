@@ -28,16 +28,20 @@ def signup(request):  # first get the user form from forms.py to render with sig
             email = form.cleaned_data.get("email")
             username = form.cleaned_data.get("password")
             if User.objects.filter(username=username).exists():
-                messages.info(request, "Username Already Taken")
+                messages.info(request, "Username Already Taken !!! Retry")
                 return redirect("signup")
             if User.objects.filter(email=email).exists():
-                messages.info(request, "Email Already Taken")
+                messages.info(request, "Email Already Taken !!! Retry")
                 return redirect("signup")
             else:
                 new_user = form.save()
                 new_user.save()
                 messages.info(request, "User Created")
                 return redirect("signin")
+        else:
+            messages.info(
+                request, "Fom validation Failed!!! Try a defferent password.")
+
     return render(request, "signup.html", {"signup_form": signup_form})
 
 

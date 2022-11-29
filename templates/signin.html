@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,13 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'stylesheets/signup.css' %}">
 </head>
 
 <body>
 
 </body>
-<h1>SIGNIN</h1>
-<div class="container">
+<div class="alert-box">
+    {% for message in messages %}
+    <p class="alert-text">{{message}}</p>
+    {% endfor %}
+</div>
+<div class="form-contatiner">
 
     <h2>Login</h2>
     <form method="post">
@@ -23,7 +29,7 @@
         <input type="password" name="password" placeholder="Password">
         <button type="submit">Login</button>
     </form>
-    <h5>dont have an Account Click <a href="{%url 'signup'%}">Here</a></h5>
+    <h5>Doesn't have an Account ? <a href="{%url 'signup'%}"> Click Here to signup</a></h5>
 </div>
 
 </html>

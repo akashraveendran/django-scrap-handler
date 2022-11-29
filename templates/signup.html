@@ -11,10 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap" rel="stylesheet">
     <title>SIGNUP</title>
     <link rel="stylesheet" href="{% static 'stylesheets/signup.css' %}">
+
 </head>
 
 <body>
-
+    <div class="alert-box">
+        {% for message in messages %}
+        <p class="alert-text">{{message}}</p>
+        {% endfor %}
+    </div>
     <div class="form-contatiner">
         <h1>Signup</h1>
 
@@ -23,12 +28,21 @@
 
             {% for field in signup_form %}
 
-            <label for="">{{field.label}}</label>
-            {{field}}
+            <div class="field-group">
+                <label for="">{{field.label}}</label>
+                {{field}}
+            </div>
             {% endfor %}
             <button type="submit">REGISTER</button>
         </form>
+        <h5>Already have an Account ? <a href="{%url 'signin'%}">Click Here to login</a></h5>
     </div>
 </body>
+<script>
+    setTimeout(() => {
+        document.querySelector(".alert-box").remove()
+    }, 2000)
+
+</script>
 
 </html>

@@ -22,8 +22,35 @@ body {
     border-radius: 5px;
 }
 
+.alert-box {
+    width: 80vw;
+    background-color: #cffacf;
+    padding: 3vh 1vw;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    border-radius: 5px;
+    text-align: center;
+    color: rgb(17, 94, 58);
+    margin-top: 10px;
+}
+
+.form-contatiner .field-group {
+    display: flex;
+    justify-content: space-between;
+    width: 40vw;
+    margin-bottom: 10px;
+}
+
+.form-contatiner input {
+    font-size: 18px;
+    background: #cffacf;
+    padding: 10px 20px;
+    width: 23vw;
+}
+
 .form-contatiner h1 {
-    margin: 0;
+    margin: 20px;
 }
 
 .form-contatiner form {
@@ -41,7 +68,7 @@ body {
     font-size: 18px;
     background: #cffacf;
     padding: 10px 20px;
-    width: 40vw;
+    width: 30vw;
 }
 
 .form-contatiner form button {
