@@ -16,7 +16,7 @@ def home(request):
 
 @user_only
 def index(request):
-    return render(request, "index.html")
+    return render(request, "user-home.html")
 
 
 @not_auth_user
