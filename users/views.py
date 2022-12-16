@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login, logout
 
 from .forms import UserAddForm
@@ -36,6 +36,10 @@ def signup(request):  # first get the user form from forms.py to render with sig
             else:
                 new_user = form.save()
                 new_user.save()
+
+                # getting and assigning group to the user
+                group = Group.objects.get(name="user")
+                new_user.groups.add(group)
                 messages.info(request, "User Created")
                 return redirect("signin")
         else:
