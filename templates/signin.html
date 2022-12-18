@@ -11,25 +11,31 @@
 </head>
 
 <body>
+    {% for message in messages %}
+    <div class="alert-box">
+        <p class="alert-text">{{message}}</p>
+    </div>
+    {% endfor %}
+    <div class="form-contatiner">
 
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Enter Username">
+            <br>
+            <br>
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+        <h5>Doesn't have an Account ? <a href="{%url 'signup'%}"> Click Here to signup</a></h5>
+    </div>
 </body>
-{% for message in messages %}
-<div class="alert-box">
-    <p class="alert-text">{{message}}</p>
-</div>
-{% endfor %}
-<div class="form-contatiner">
 
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="Enter Username">
-        <br>
-        <br>
-        <input type="password" name="password" placeholder="Password">
-        <button type="submit">Login</button>
-    </form>
-    <h5>Doesn't have an Account ? <a href="{%url 'signup'%}"> Click Here to signup</a></h5>
-</div>
+<script>
+    setTimeout(() => {
+        document.querySelector(".alert-box").remove()
+    }, 2000)
+
+</script>
 
 </html>
