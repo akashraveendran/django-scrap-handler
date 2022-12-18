@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <title>SIGNUP</title>
+    <link rel="stylesheet" href="{% static 'stylesheets/signup.css' %}">
+</head>
+
+<body>
+    {% for message in messages %}
+    <div class="alert-box">
+        <p class="alert-text">{{message}}</p>
+    </div>
+    {% endfor %}
+    <div class="form-contatiner">
+        <h1>Signup As Vendor</h1>
+
+        <form action="" method="post">
+            {% csrf_token %}
+
+            {% for field in signup_form %}
+
+            <div class="field-group">
+                <label for="">{{field.label}}</label>
+                {{field}}
+            </div>
+            {% endfor %}
+            <button type="submit">REGISTER</button>
+        </form>
+        <h5>Already have an Account ? <a href="{%url 'signin'%}">Click Here to login</a></h5>
+    </div>
+</body>
+<script>
+    setTimeout(() => {
+        document.querySelector(".alert-box").remove()
+    }, 2000)
+
+</script>
+
+</html>
