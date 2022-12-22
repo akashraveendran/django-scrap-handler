@@ -7,10 +7,10 @@ def vendor_only(view_func):
         group = None
         if request.user.groups.exists():
             group = request.user.groups.all()[0].name
-        if group == 'users':
+        if group == 'vendor':
             return view_func(request, *args, **kwargs)
         else:
-            return redirect('home')
+            return redirect('vendor_signin')
 
     return wrapper_function
 
@@ -21,8 +21,8 @@ def not_auth_vendor(view_func):
         group = None
         if request.user.groups.exists():
             group = request.user.groups.all()[0].name
-        if group == 'users':
-            return redirect('index')
+        if group == 'vendor':
+            return redirect('vendor_home')
         else:
             return view_func(request, *args, **kwargs)
 
