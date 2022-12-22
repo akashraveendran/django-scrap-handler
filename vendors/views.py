@@ -65,3 +65,7 @@ def vendor_signin(request):
 def signout(request):
     logout(request)
     return redirect("signin")
+
+
+def update_vendor_profile(request):
+    return render(request, "update-vendor-profile.html")
