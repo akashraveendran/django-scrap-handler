@@ -68,4 +68,4 @@ def signout(request):
 
 
 def update_vendor_profile(request):
-    return render(request, "update-vendor-profile.html")
+    return render(request, "update-vendor.html")
