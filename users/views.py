@@ -70,5 +70,7 @@ def signout(request):
     logout(request)
     return redirect("signin")
 
+
 def update_user_profile(request):
+
     return render(request, "update-user.html")

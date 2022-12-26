@@ -8,6 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile(User)</title>
     <link rel="stylesheet" href="{% static 'stylesheets/signup.css' %}">
+    <style>
+        textarea {
+            background: rgb(166, 233, 166);
+            font-family: 'Oswald', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,10 +27,17 @@
         <h2>Update Your Profile </h2>
         <form method="post">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Enter Username">
+
+            <textarea name="address" id="" cols="45" rows="10" placeholder="Enter Address" required></textarea>
             <br>
             <br>
-            <input type="password" name="password" placeholder="Password">
+            <input type="text" name="location" placeholder="Enter you location" required>
+            <br>
+            <br>
+            <label for="">Upload Profile image</label>
+            <br>
+            <input type="file" accept=".jpg|.png" required>
+            <br>
             <button type="submit">Update</button>
         </form>
         <h5>Back to <a href="{%url 'home'%}">Home</a></h5>
