@@ -12,7 +12,7 @@ from .decorators import not_auth_vendor, vendor_only
 
 @vendor_only
 def vendor_home(request):
-    return render(request, "vendor-home.html")
+    return render(request, "vendors/vendor-home.html")
 
 
 @not_auth_vendor
@@ -42,7 +42,7 @@ def vendor_signup(request):  # first get the user form from forms.py to render w
             messages.info(
                 request, "Fom validation Failed!!! Try a defferent password.")
 
-    return render(request, "vendor-signup.html", {"signup_form": signup_form})
+    return render(request, "vendors/vendor-signup.html", {"signup_form": signup_form})
 
 
 @not_auth_vendor
@@ -59,7 +59,7 @@ def vendor_signin(request):
         else:
             messages.info(request, "Username or password incorrect ")
             return redirect("vendor_signin")
-    return render(request, "vendor-signin.html")
+    return render(request, "vendors/vendor-signin.html")
 
 
 def signout(request):
@@ -68,4 +68,4 @@ def signout(request):
 
 
 def update_vendor_profile(request):
-    return render(request, "update-vendor.html")
+    return render(request, "vendors/update-vendor.html")

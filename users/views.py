@@ -16,7 +16,7 @@ def home(request):
 
 @user_only
 def index(request):
-    return render(request, "user-home.html")
+    return render(request, "users/user-home.html")
 
 
 @not_auth_user
@@ -46,7 +46,7 @@ def signup(request):  # first get the user form from forms.py to render with sig
             messages.info(
                 request, "Fom validation Failed!!! Try a defferent password.")
 
-    return render(request, "signup.html", {"signup_form": signup_form})
+    return render(request, "users/signup.html", {"signup_form": signup_form})
 
 
 @not_auth_user
@@ -63,7 +63,7 @@ def signin(request):
         else:
             messages.info(request, "Username or password incorrect ")
             return redirect("signin")
-    return render(request, "signin.html")
+    return render(request, "users/signin.html")
 
 
 def signout(request):
@@ -72,5 +72,4 @@ def signout(request):
 
 
 def update_user_profile(request):
-
-    return render(request, "update-user.html")
+    return render(request, "users/update-user.html")
