@@ -3,7 +3,7 @@ from django.contrib import messages
 
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login, logout
-from .forms import VendorAddForm
+from users.forms import UserAddForm
 
 from .decorators import not_auth_vendor, vendor_only
 
@@ -17,9 +17,9 @@ def vendor_home(request):
 
 @not_auth_vendor
 def vendor_signup(request):  # first get the user form from forms.py to render with signup.html
-    signup_form = VendorAddForm()
+    signup_form = UserAddForm()
     if(request.method == "POST"):
-        form = VendorAddForm(request.POST)
+        form = UserAddForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data.get("email")
             username = form.cleaned_data.get("password")
