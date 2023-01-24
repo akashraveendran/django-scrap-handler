@@ -1,52 +1,105 @@
 {% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap" rel="stylesheet">
-    <title>Scrap handler</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static '/stylesheets/home.css' %}">
+    <link rel="stylesheet" href="{% static '/stylesheets/home_one.css' %}">
 
+    <title>Home</title>
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- 
-        navbar
-        banner
-        about us
-        contact us
-        footer
-     -->
-    <nav id="navbar">
-        <div class="icon-group">
-            <h1 class="nav-title">CleanSCRAPS &nbsp; <i class="fa-solid fa-recycle"></i></h1>
-            <span class="sub-title">SCRAP HANDLER SYSTEM</span>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid ">
+            <a class="navbar-brand text-dark fs-1 fw-bold" href="#">
+                <img class="img-fluid d-none d-md-block" src="{% static '/images/01_S_Letter1.png' %}"
+                    style="width:100px;" alt="brand">
+                <a class="navbar-brand text-secondary fs-1 fw-bold" href="#">Scrap Picker</a>
+            </a>
+            <button class="navbar-toggler shadow-none " type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-xl-end " id="navbarNavAltMarkup">
+                <div class="navbar-nav ">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#about-us">About</a>
+                    <a class="nav-link" href="#hd">Contact</a>
+                    <a class="nav-link " href="{%url 'signin'%}">Sign In</a>
+                    <a class="btn btn-outline-success rounded-pill border border-5 border-success shadow-none " id="yn"
+                        href="{%url 'vendor_signup'%}">Patner with us</a>
+                </div>
+            </div>
         </div>
-        <a href="{% url 'signup' %}">
-
-            <button id="nav-btn">SIGN UP and get started</button>
-        </a>
     </nav>
-    <!-- find code for making background color black when the screen is scrolling -->
-
-    <section id="banner" style='background: url("/static/images/green-leaves.jpg")'>
-        <h2 class="banner-title">
-            Reuse the past, Recycle the present, Save the future
-        </h2>
-
+    <section class="intro mt-5 pt-5" id="op">
+        <div class="container-lg mt-5">
+            <div class="row justify-content-around align-items-center">
+                <div class="col-md-5 text-md-start">
+                    <h1>
+                        <div class="text-label  fs-5 text-muted">your scrap makes our planet sustainable</div>
+                        <div class="text-hero-bold fs-1 fw-bold text-success">Sell your scrap with your finger tip with
+                            scrap_picker</div>
+                    </h1>
+                    <p class="text-label  fs-5 text-muted">Recycling of waste is defined in the Waste Framework
+                        Directive as any recovery operation by which waste materials are reprocessed into products,
+                        materials or substances
+                        whether for the original or other purposes.</p>
+                    <a href="#explore" class="btn btn-secondary btn-lg btn-secondary">Exlpore Now</a>
+                    <a href="#pricing" class="btn btn-secondary btn-lg btn-secondary">pricing</a><br><br>
+                    <a href="{% url 'signup' %}"><button
+                            class="btn btn-outline-success rounded-pill border border-3 border-success "
+                            id="tg">Sign_Up</button></a>
+                </div>
+                <div class="col-md-5 text-center">
+                    <img class="img-fluid" src="{% static 'images/123655.png' %}" alt="img">
+                </div>
+            </div>
+        </div>
     </section>
-    <section id="about-us">
-        <h2 id="about-title">About Us</h2>
-        <div class="about-contents">
+    <section id="about-us" class="container-fluid mt-5">
+        <h2 id="about-title" class="text-hero-bold fs-1 fw-bold">About Us</h2>
+        <div class="about-contents ">
 
+            <p class="about-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim vero corrupti in
+                aliquid incidunt autem quam, sequi qui sunt corporis nostrum, reiciendis, sapiente recusandae placeat
+                dicta. Nulla eos iure impedit facilis et odit reiciendis perferendis excepturi totam dolores quas odio
+                doloribus,
+                nostrum fugit vel sit nihil quaerat nisi sapiente eveniet corrupti atque! Possimus, repellat libero
+                aspernatur dolorum nulla soluta animi commodi, quae labore ex maxime vel iusto perferendis officiis iste
+                obcaecati
+                quo vero. Laudantium molestias nam recusandae, vitae dolores quia, accusantium labore nobis deserunt
+                pariatur voluptatibus officia. Natus, quas dolore, ut magni molestiae sapiente facilis veniam labore
+                optio, quisquam architecto?</p><br>
+            <p class="about-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim vero corrupti in
+                aliquid incidunt autem quam, sequi qui sunt corporis nostrum, reiciendis, sapiente recusandae placeat
+                dicta. Nulla eos iure impedit facilis et odit reiciendis perferendis excepturi totam dolores quas odio
+                doloribus,
+                nostrum fugit vel sit nihil quaerat nisi sapiente eveniet corrupti atque! Possimus, repellat libero
+                aspernatur dolorum nulla soluta animi commodi, quae labore ex maxime vel iusto perferendis officiis iste
+                obcaecati
+                quo vero. Laudantium molestias nam recusandae, vitae dolores quia, accusantium labore nobis deserunt
+                pariatur voluptatibus officia. Natus, quas dolore, ut magni molestiae sapiente facilis veniam labore
+                optio, quisquam architecto?</p>
             <p class="about-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim vero corrupti in
                 aliquid incidunt autem quam, sequi qui sunt corporis nostrum, reiciendis, sapiente recusandae placeat
                 dicta. Nulla eos iure impedit facilis et odit reiciendis perferendis excepturi totam dolores quas odio
@@ -58,26 +111,31 @@
                 pariatur voluptatibus officia. Natus, quas dolore, ut magni molestiae sapiente facilis veniam labore
                 optio, quisquam architecto?</p>
 
-            <img src="https://industry.pulpandpaper-technology.com/articles/1504182590-top-methods-solid-waste-disposal-management.jpg"
-                alt="" class="about-image">
-
         </div>
     </section>
-    <section id="contact-us">
-        <h2 id="contact-title">CONTACT US</h2>
-
-        <form action="" class="contact-form">
-            <input type="email" placeholder="Enter Your Email" required>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Enter Your message"></textarea>
-            <input class="submit-btn" type="submit" value="SUBMIT">
-        </form>
-
     </section>
-    <footer id="footer">
-        <h2>Created by ZION IT COMPANY</h2>
+    <section id="hd" class="container">
+        <div class="mb-3">
+            <h1>Contact us</h1>
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+        </div>
+        <button type="submit" class="btn btn-success mb-3 shadow-none">Submit</button>
+    </section>
+    <footer id="footer" class="mt-5">
+        <p>Copyright 1999-2022 by Refsnes Data. All Rights Reserved.</p>
     </footer>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
