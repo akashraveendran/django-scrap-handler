@@ -1,24 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-*{
-    
+
+* {
+
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    
-   }
-   html{
+
+}
+
+html {
     scroll-behavior: smooth;
 }
 
 
-#op{
+#op {
     margin-top: 90px;
 }
-#tg:hover{
-    transform: translate(5px) 
+
+#tg:hover {
+    transform: translate(5px)
 }
-#yn:hover{
+
+#yn:hover {
     transform: translate(5px)
 }
 
@@ -77,4 +81,11 @@
 #footer h2 {
     font-size: 30px;
     text-decoration: underline;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fff;
 }
