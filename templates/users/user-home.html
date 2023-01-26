@@ -47,54 +47,57 @@
         </div>
     </nav>
 
-    {% block content %}
+    <div style="min-height: 70vh;">
 
-    <div class="text-center" id="tt">
-        <h1 class="display-3 text-success   fw-bold ">Scrap
-            Managment<br>system</h1>
+        {% block content %}
 
-        <a href="{% url 'select_scrap' %}"><button
-                class="btn btn-outline-success rounded-pill border border-3 border-success ">Select your
-                scrap</button></a>
-    </div>
-    <div class="text-center p-5" id="ht">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner text-light">
-                <div class="carousel-item active">
-                    <h1>Select scrap items for selling</h1>
-                    <p>We collect scrap from wide list
-                        of items like newspaper,irn,electronic
-                        beer bottle etc.<br>
-                        We do not pick up cloth,wood and
-                        glass</p>
-                </div>
-                <div class="carousel-item">
-                    <h1>Pickup boys will arrive at your home</h1>
-                    <p>our pickup executives will call you 1 hour before coming.<br>
-                        they will bring an electronic machine to weigh each scrap item sepertately. </p>
-                </div>
-                <div class="carousel-item">
-                    <h1>Choose a date for scarp pickup</h1>
-                    <p>choose a date when you want our executive to come for scrap pickup.<br>
-                        our pickup time will be between 10 am to 6 pm.
-                        <br>you will get a bill on your mobile and the amount will be transferred to your bank account
-                        immediatley.<br>
-                        the rate are non-negotiable.
-                    </p>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        <div class="text-center" id="tt">
+            <h1 class="display-3 text-success   fw-bold ">Scrap
+                Managment<br>system</h1>
+
+            <a href="{% url 'select_scrap' %}"><button
+                    class="btn btn-outline-success rounded-pill border border-3 border-success ">Select your
+                    scrap</button></a>
         </div>
-    </div>
+        <div class="text-center p-5" id="ht">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner text-light">
+                    <div class="carousel-item active">
+                        <h1>Select scrap items for selling</h1>
+                        <p>We collect scrap from wide list
+                            of items like newspaper,irn,electronic
+                            beer bottle etc.<br>
+                            We do not pick up cloth,wood and
+                            glass</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h1>Pickup boys will arrive at your home</h1>
+                        <p>our pickup executives will call you 1 hour before coming.<br>
+                            they will bring an electronic machine to weigh each scrap item sepertately. </p>
+                    </div>
+                    <div class="carousel-item">
+                        <h1>Choose a date for scarp pickup</h1>
+                        <p>choose a date when you want our executive to come for scrap pickup.<br>
+                            our pickup time will be between 10 am to 6 pm.
+                            <br>you will get a bill on your mobile and the amount will be transferred to your bank
+                            account
+                            immediatley.<br>
+                            the rate are non-negotiable.
+                        </p>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
     </div>
     <div id="accEx" class="container"> </div>
     <div id="uk">
@@ -160,6 +163,8 @@
         </div>
     </div>
     {% endblock %}
+
+    </div>
     <footer id="footer" class="container-fluid p-5">
         <p>Copyright 1999-2022 by Refsnes Data. All Rights Reserved.</p>
     </footer>

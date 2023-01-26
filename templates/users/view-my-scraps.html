@@ -1,0 +1,42 @@
+{% extends "users/user-home.html" %}
+{% load static %}
+
+{% block content %}
+<h1 class="text-muted text-center">SCRAPS ADDED BY YOU </h1>
+
+<div class="container mb-3">
+    <div class="row ">
+
+        {% for scrap in all_scraps %}
+        <div class="col-4 my-5">
+
+            <div class="card shadow p-2 rounded" style="min-height: 25rem;">
+                <div class="card-image">
+                    <img src="{{scrap.Scrap_Image.url}}" alt="" style="width: 100%;">
+                </div>
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="card-text">
+                        <span class="text-muted fw-bold">Total Scraps : </span><br>
+                        <p class="card-text ps-3">
+                            {{scrap.waste_type}}
+                        </p>
+                    </div>
+
+                    {% if scrap.status == 'Added' %}
+                    <p class="card-text fw-bold text-muted">
+                        SCRAP STATUS : <span class="text-warning">{{scrap.status}}</span>
+                    </p>
+                    <a class="btn btn-outline-danger fw-bold" href="{% url 'delete_scrap' scrap.id  %}"
+                        onclick="return confirm('Are you sure you want to delete this item?')">Delete Scrap</a>
+                    {% else %}
+                    <p class="card-text fw-bold text-muted">
+                        SCRAP STATUS : <span class="text-success"> {{scrap.status}}</span>
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

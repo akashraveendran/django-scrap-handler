@@ -99,5 +99,14 @@ def confirm_scrap(request,waste_type):
             added_scrap.user_ID = user
             added_scrap.status = "Added"
             added_scrap.save()
-            return redirect("index")
+            return redirect("view_my_scraps")
     return render(request, "users/s_confirm.html",{"add_scrap_form":add_scrap_form})
+
+
+def view_my_scraps(request):
+    all_scraps = Scrap.objects.filter(user_ID=request.user.id)
+    return render(request, "users/view-my-scraps.html",{"all_scraps":all_scraps})
+
+def delete_scrap(request,id):
+    Scrap.objects.filter(id=id).delete()
+    return redirect("view_my_scraps")
