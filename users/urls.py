@@ -10,5 +10,5 @@ urlpatterns = [
     path('signout/', views.signout, name="signout"),
     path('update-profile/', views.update_user_profile, name="update_user_profile"),
     path('select-scrap/', views.select_scrap, name="select_scrap"),
-    path('confirm-scrap/<int:scrap_id>', views.confirm_scrap, name="confirm_scrap"),
+    path('confirm-scrap/<str:waste_type>', views.confirm_scrap, name="confirm_scrap"),
 ]

@@ -8,6 +8,7 @@ from .forms import UserAddForm
 from .decorators import user_only, not_auth_user
 
 from .models import Scrap
+from .forms import AddScrapForm
 
 # Create your views here.
 
@@ -80,15 +81,22 @@ def select_scrap(request):
     
     if request.method == "POST":
         waste_type = " , ".join(request.POST.getlist("waste_type[]"))
-        user = User.objects.get(id=request.user.id)
-        scrap = Scrap.objects.create(waste_type=waste_type,user_ID=user)
-        return redirect("confirm_scrap",scrap.id)
+        return redirect("confirm_scrap",waste_type)
 
     return render(request, "users/scrap_selecter.html")
 
 
-def confirm_scrap(request,scrap_id):
+def confirm_scrap(request,waste_type):
+    add_scrap_form = AddScrapForm()
     if request.method == "POST":
-        scrap = Scrap.objects.filter(id=request.POST["id"]).update(username=request.POST["username"])
-        print(request.POST["id"],request.POST["username"])
-    return render(request, "users/s_confirm.html",{"id":scrap_id})
+        form = AddScrapForm(request.POST,request.FILES)
+        if form.is_valid():
+            added_scrap = form.save()
+            waste_type = waste_type.replace("%20"," ")
+            print(waste_type)
+            user = User.objects.get(id=request.user.id)
+            added_scrap.waste_type = waste_type
+            added_scrap.user_ID = user
+            added_scrap.save()
+            return redirect("index")
+    return render(request, "users/s_confirm.html",{"add_scrap_form":add_scrap_form})
