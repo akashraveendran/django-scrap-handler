@@ -97,6 +97,7 @@ def confirm_scrap(request,waste_type):
             user = User.objects.get(id=request.user.id)
             added_scrap.waste_type = waste_type
             added_scrap.user_ID = user
+            added_scrap.status = "Added"
             added_scrap.save()
             return redirect("index")
     return render(request, "users/s_confirm.html",{"add_scrap_form":add_scrap_form})

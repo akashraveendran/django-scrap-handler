@@ -26,4 +26,5 @@ class Scrap(models.Model):
     State = models.CharField(max_length=200,null=True,blank=True)
     Pin_code = models.CharField(max_length=200,null=True,blank=True)
     Scrap_Image = models.ImageField(upload_to="scraps",null=True,blank=True)
+    status = models.CharField(max_length=200,null=True,blank=True)
     
