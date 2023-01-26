@@ -1,0 +1,71 @@
+{% extends "users/user-home.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static '/stylesheets/scrap_selecter.css' %}">
+<section>
+    <h2 class="text-muted text-center my-5">Select Waste Type </h2>
+    <form method="post" class="scrap-s-form">
+        {% csrf_token %}
+        <div class="tile">
+            <input type="checkbox" name="waste_type[]" id="plastic bottle" value="plastic bottle">
+            <label for="sport1">
+                <i class="fa-solid fa-bottle-water"></i>
+                <h6>plastic bottle</h6>
+            </label>
+        </div>
+        <div class="tile">
+            <input type="checkbox" name="waste_type[]" id="cartoon box" value="cartoon box">
+            <label for="sport2">
+                <i class="fa-solid fa-box-open"></i>
+                <h6>cartoon box</h6>
+            </label>
+        </div>
+        <div class="tile">
+            <input type="checkbox" name="waste_type[]" id="e-waste" value="e-waste">
+            <label for="sport3">
+                <i class="fa-solid fa-biohazard"></i>
+                <h6>e-waste</h6>
+            </label>
+        </div>
+        <div class="tile">
+            <input type="checkbox" name="waste_type[]" id="metals" value="metals">
+            <label for="sport4">
+                <i class="fa-solid fa-tape"></i>
+                <h6>metals</h6>
+            </label>
+        </div>
+        <div class="tile">
+            <input type="checkbox" name="waste_type[]" id="battery" value="battery">
+            <label for="sport5">
+                <i class="fa-sharp fa-solid fa-car-battery"></i>
+                <h6>battery</h6>
+            </label>
+        </div>
+        <div class="tile">
+            <input type="checkbox" name="waste_type[]" id="paper" value="paper">
+            <label for="sport6">
+                <i class="fa-solid fa-square-full"></i>
+                <h6>paper</h6>
+            </label>
+        </div>
+        <div class="tile">
+            <input type="checkbox" name="waste_type[]" id="home appliance" value="home appliance">
+            <label for="sport7">
+                <i class="fa-sharp fa-solid fa-blender-phone"></i>
+                <h6>home appliance</h6>
+            </label>
+        </div>
+
+        <div class="tile">
+            <input type="checkbox" name="waste_type[]" id="others" value="others">
+            <label for="sport8">
+                <i class="fa-sharp fa-solid fa-radiation"></i>
+                <h6>others</h6>
+            </label>
+        </div>
+        <button class="btn btn-success sunmit_btn w-100 my-4 shadow-none" id="next-btn" type="submit">Next</button>
+    </form>
+</section>
+
+{% endblock %}

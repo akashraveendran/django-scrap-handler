@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <!-- boootstrap icons -->
     <link rel="stylesheet" href="{% static 'stylesheets/user-home.css' %}">
     <title>User Home</title>
@@ -46,17 +47,16 @@
         </div>
     </nav>
 
-
+    {% block content %}
 
     <div class="text-center" id="tt">
         <h1 class="display-3 text-success   fw-bold ">Scrap
             Managment<br>system</h1>
 
-        <a href=""><button class="btn btn-outline-success rounded-pill border border-3 border-success ">Select your
+        <a href="{% url 'select_scrap' %}"><button
+                class="btn btn-outline-success rounded-pill border border-3 border-success ">Select your
                 scrap</button></a>
     </div>
-
-
     <div class="text-center p-5" id="ht">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner text-light">
@@ -159,16 +159,14 @@
             </div>
         </div>
     </div>
-
-
-
+    {% endblock %}
     <footer id="footer" class="container-fluid p-5">
         <p>Copyright 1999-2022 by Refsnes Data. All Rights Reserved.</p>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>

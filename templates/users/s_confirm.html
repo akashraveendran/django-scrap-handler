@@ -1,0 +1,95 @@
+{% extends "users/user-home.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container p-5">
+  <h2 class="text-muted text-center mb-5">Add Your Personal Info </h2>
+  <form class="row g-3 needs-validation p-5 shadow-lg">
+    {%csrf_token%}
+    <input type="hidden" name="id" value="{{ id }}">
+    <div class="col-md-4 position-relative">
+      <label for="validationTooltip01" class="form-label">Username</label>
+      <input type="text" class="form-control" name="username" id="validationTooltip01"
+        value="{{ request.user.first_name }}" readonly required>
+      <div class="valid-tooltip">
+        Looks good!
+      </div>
+    </div>
+
+    <div class="col-md-5 position-relative">
+      <label for="validationTooltipUsername" class="form-label">Email</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+        <input type="text" class="form-control" id="validationTooltipUsername" name="user_email"
+          aria-describedby="validationTooltipUsernamePrepend" value="{{ request.user.email }}" readonly required>
+        <div class=" invalid-tooltip">
+          Please choose a unique and valid username.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 position-relative">
+      <label for="validationTooltip05" class="form-label">Phone No</label>
+      <input type="text" class="form-control" name="user_phone" id="validationTooltip05"
+        value="{{ request.user.email }}" readonly required>
+      <div class="invalid-tooltip">
+        Please provide a valid Phone no.
+      </div>
+    </div>
+    <div class="col-md-4 position-relative">
+      <label for="validationTooltip03" class="form-label">Address</label>
+      <input type="text" class="form-control" name="user_address" id="validationTooltip03" required>
+      <div class="invalid-tooltip">
+        Please provide a valid address.
+      </div>
+    </div>
+
+    <div class="col-md-3 position-relative">
+      <label for="validationTooltip03" class="form-label">City</label>
+      <input type="text" class="form-control" name="city" id="validationTooltip03" required>
+      <div class="invalid-tooltip">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="col-md-5 position-relative">
+      <label for="validationTooltip04" class="form-label">State</label>
+      <select class="form-select" name="state" id="validationTooltip04" required>
+        <option selected disabled value="">...</option>
+        <option value="Kerala">Kerala</option>
+      </select>
+      <div class="invalid-tooltip">
+        Please select a valid state.
+      </div>
+    </div>
+    <div class="col-md-3 position-relative">
+      <label for="validationTooltip05" class="form-label">Pin code</label>
+      <input type="text" class="form-control" name="pin" id="validationTooltip05" required>
+      <div class="invalid-tooltip">
+        Please provide a valid zip.
+      </div>
+    </div>
+    <div class="col-md-9 position-relative  ">
+      <label class="form-label" for="inputGroupFile01">Upload Scrap Photo</label>
+      <input type="file" class="form-control" id="inputGroupFile01" name="scrap_image">
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Confirm
+      </button>
+
+      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-success fs-1 " id="exampleModalLabel">Success</h5>
+              <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              your oder on pending
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </form>
+</div>
+{% endblock %}
