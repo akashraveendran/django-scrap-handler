@@ -1,42 +1,29 @@
+{% extends "vendors/vendor-home.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Profile(Vendor)</title>
-    <link rel="stylesheet" href="{% static 'stylesheets/signup.css' %}">
-</head>
+{% block content %}
 
-<body>
-    {% for message in messages %}
-    <div class="alert-box">
-        <p class="alert-text">{{message}}</p>
-    </div>
-    {% endfor %}
-    <div class="form-contatiner">
+<div class="container p-5">
+    <h2 class="text-muted text-center mb-5">Add Profile Info </h2>
+    <form class="row g-3 needs-validation p-5 shadow-lg" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <input type="hidden" name="id" value="{{ id }}">
+        {% for field in update_form %}
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip01" class="form-label">{{field.label}}</label>
+            {{field}}
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+        {% endfor %}
 
-        <h2>Update Your Profile </h2>
-        <form method="post">
-            {% csrf_token %}
-            <input type="text" name="username" placeholder="Enter Username">
-            <br>
-            <br>
-            <input type="password" name="password" placeholder="Password">
-            <button type="submit">Update</button>
-        </form>
-        <h5>Back to <a href="{%url 'home'%}">Home</a></h5>
-    </div>
-</body>
+        <div class="col-12">
+            <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Confirm
+            </button>
+        </div>
+    </form>
+</div>
 
-<script>
-    setTimeout(() => {
-        document.querySelector(".alert-box").remove()
-    }, 2000)
-
-</script>
-
-
-</html>
+{% endblock %}

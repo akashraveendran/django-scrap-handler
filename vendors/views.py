@@ -7,6 +7,9 @@ from users.forms import UserAddForm
 
 from .decorators import not_auth_vendor, vendor_only
 
+from .forms import UpdateVendorForm
+from .models import VendorProfile
+
 # Create your views here.
 
 
@@ -66,6 +69,23 @@ def signout(request):
     logout(request)
     return redirect("signin")
 
-
+@vendor_only
 def update_vendor_profile(request):
-    return render(request, "vendors/update-vendor.html")
+    update_form = UpdateVendorForm()
+    if request.method == "POST":
+        update_form = UpdateVendorForm(request.POST,request.FILES)
+        if(update_form.is_valid()):
+            vendor = User.objects.get(id=request.user.id)
+            updated_profile = update_form.save()
+            updated_profile.Vendor_ID = vendor
+            updated_profile.save()
+            return redirect("vendor_profile")
+
+    return render(request, "vendors/update-vendor.html",{"update_form":update_form})
+
+@vendor_only
+def vendor_profile(request):
+    v_profile = VendorProfile.objects.get(Vendor_ID=request.user.id)
+    print(v_profile)
+    
+    return render(request, "vendors/vendor-profile.html",{"v_profile":v_profile})

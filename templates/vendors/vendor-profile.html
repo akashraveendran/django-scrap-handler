@@ -1,0 +1,77 @@
+{% extends "vendors/vendor-home.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static '/stylesheets/userprofile.css' %}">
+<!-- <h1>Vendor Profile page</h1>
+
+<p> Address : {{v_profile.Address}}</p>
+<p> Phone : {{v_profile.Phone_Number}}</p>
+<p> City : {{v_profile.City}}</p> -->
+<div class="container">
+    <div class="box">
+        <img src="{{v_profile.Profile_Image.url}}">
+        <h3>{{request.user.username}}</h3>
+    </div>
+    <div class="about">
+        <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">First name</label>
+                <input type="text" class="form-control" id="validationCustom01" value="{{request.user.first_name}}"
+                    required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="validationCustom02" value="{{request.user.last_name}}"
+                    required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustomUsername" class="form-label">Email</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="text" class="form-control" id="validationCustomUsername"
+                        aria-describedby="inputGroupPrepend" value="{{request.user.email}}" required>
+                    <div class="invalid-feedback">
+                        Please choose a username.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom03" class="form-label">Adress</label>
+                <input type="text" class="form-control" id="validationCustom03" value="{{v_profile.Address}}" required>
+                <div class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom04" class="form-label">State</label>
+                <input type="text" class="form-control" id="validationCustom04" value="{{v_profile.State}}" required>
+                <div class="invalid-feedback">
+                    Please select a valid state.
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="validationCustom05" class="form-label">Phone No</label>
+                <input type="text" class="form-control" id="validationCustom05" value="{{v_profile.Phone_Number}}"
+                    required>
+                <div class="invalid-feedback">
+                    Please provide a valid phone no.
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-success" type="submit">Update</button>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+{% endblock %}
