@@ -2,76 +2,61 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static '/stylesheets/userprofile.css' %}">
-<!-- <h1>Vendor Profile page</h1>
 
-<p> Address : {{v_profile.Address}}</p>
-<p> Phone : {{v_profile.Phone_Number}}</p>
-<p> City : {{v_profile.City}}</p> -->
-<div class="container">
-    <div class="box">
-        <img src="{{v_profile.Profile_Image.url}}">
-        <h3>{{request.user.username}}</h3>
-    </div>
-    <div class="about">
-        <form class="row g-3 needs-validation" novalidate>
-            <div class="col-md-4">
-                <label for="validationCustom01" class="form-label">First name</label>
-                <input type="text" class="form-control" id="validationCustom01" value="{{request.user.first_name}}"
-                    required>
-                <div class="valid-feedback">
-                    Looks good!
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+                    width="150px"
+                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+                    class="font-weight-bold">Edogaru</span><span class="text-black50">edogaru@mail.com.my</span><span>
+                </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-itemscenter mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <label for="validationCustom02" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="validationCustom02" value="{{request.user.last_name}}"
-                    required>
-                <div class="valid-feedback">
-                    Looks good!
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
+                            placeholder="first name" value=""></div>
+                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control"
+                            value="" placeholder="surname"></div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <label for="validationCustomUsername" class="form-label">Email</label>
-                <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input type="text" class="form-control" id="validationCustomUsername"
-                        aria-describedby="inputGroupPrepend" value="{{request.user.email}}" required>
-                    <div class="invalid-feedback">
-                        Please choose a username.
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">shop
+                            name</label><input type="text" class="form-control" placeholder="shop name" value=""></div>
+                    <div class="col-md-12"><label class="labels">Mobile
+                            Number</label><input type="text" class="form-control" placeholder="enter phone number"
+                            value=""></div>
+                    <div class="col-md-12"><label class="labels">Licence
+                            no</label><input type="text" class="form-control" placeholder="Licence no" value=""></div>
+                    <div class="col-md-12"><label class="labels">Gst
+                            no</label><input type="text" class="form-control" placeholder="Gst no" value=""></div>
+                    <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control"
+                            placeholder="Postcode" value=""></div>
+                    <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control"
+                            placeholder="enter address line 2" value=""></div>
+                    <div class="col-md-12"><label class="labels">Email
+                            ID</label><input type="text" class="form-control" placeholder="enter email id" value="">
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label for="validationCustom03" class="form-label">Adress</label>
-                <input type="text" class="form-control" id="validationCustom03" value="{{v_profile.Address}}" required>
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-            </div>
-            <div class="col-md-3">
-                <label for="validationCustom04" class="form-label">State</label>
-                <input type="text" class="form-control" id="validationCustom04" value="{{v_profile.State}}" required>
-                <div class="invalid-feedback">
-                    Please select a valid state.
-                </div>
-            </div>
 
-            <div class="col-md-3">
-                <label for="validationCustom05" class="form-label">Phone No</label>
-                <input type="text" class="form-control" id="validationCustom05" value="{{v_profile.Phone_Number}}"
-                    required>
-                <div class="invalid-feedback">
-                    Please provide a valid phone no.
                 </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels">district</label><input type="text" class="form-control"
+                            placeholder="district" value=""></div>
+                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text"
+                            class="form-control" value="" placeholder="state"></div>
+                </div>
+                <div class="mt-5 text-center"><button class="btn btnprimary profile-button" type="button">Save
+                        Profile</button></div>
             </div>
-            <div class="col-12">
-                <button class="btn btn-success" type="submit">Update</button>
-            </div>
-        </form>
-
-
+        </div>
     </div>
 </div>
+</div>
+</div>
+
+
 
 {% endblock %}

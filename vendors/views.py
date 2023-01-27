@@ -80,12 +80,9 @@ def update_vendor_profile(request):
             updated_profile.Vendor_ID = vendor
             updated_profile.save()
             return redirect("vendor_profile")
-
     return render(request, "vendors/update-vendor.html",{"update_form":update_form})
 
 @vendor_only
 def vendor_profile(request):
     v_profile = VendorProfile.objects.get(Vendor_ID=request.user.id)
-    print(v_profile)
-    
     return render(request, "vendors/vendor-profile.html",{"v_profile":v_profile})
