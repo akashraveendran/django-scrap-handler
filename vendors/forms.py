@@ -12,14 +12,18 @@ class VendorAddForm(UserCreationForm):
         fields = ["username", "first_name", "last_name",
                   "email", "password1", "password2"]
 
-class UpdateVendorForm(ModelForm):
+class AddVendorForm(ModelForm):
     class Meta:
         model = VendorProfile
-        fields = ["Phone_Number","Address","City","State","Profile_Image"]
+        fields = ["shop_name","License_No","GST_No","Postcode","Phone_Number","Area","District","State","Profile_Image"]
 
         widgets = {
-            'Phone_Number': TextInput(attrs={"class":"form-control"}),
-            'Address': TextInput(attrs={"class":"form-control"}),
-            "City": TextInput(attrs={"class":"form-control"}),
-            "State": TextInput(attrs={"class":"form-control"}),
+            'shop_name': TextInput(attrs={"class":"form-control","placeholder":"Shop Name"}),
+            'License_No': TextInput(attrs={"class":"form-control","placeholder":"Licence Number"}),
+            'GST_No': TextInput(attrs={"class":"form-control","placeholder":"GST No"}),
+            'Postcode': TextInput(attrs={"class":"form-control","placeholder":"Postcode"}),
+            'Phone_Number': TextInput(attrs={"class":"form-control","placeholder":"Phone Number"}),
+            'Area': TextInput(attrs={"class":"form-control","placeholder":"Area/city"}),
+            'District': TextInput(attrs={"class":"form-control","placeholder":"District"}),
+            "State": TextInput(attrs={"class":"form-control","placeholder":"State"}),
         }

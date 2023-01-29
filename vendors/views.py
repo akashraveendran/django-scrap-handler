@@ -7,8 +7,9 @@ from users.forms import UserAddForm
 
 from .decorators import not_auth_vendor, vendor_only
 
-from .forms import UpdateVendorForm
+from .forms import AddVendorForm
 from .models import VendorProfile
+from users.models import Scrap
 
 # Create your views here.
 
@@ -67,22 +68,43 @@ def vendor_signin(request):
 
 def signout(request):
     logout(request)
-    return redirect("signin")
+    return redirect("vendor_signin")
 
 @vendor_only
-def update_vendor_profile(request):
-    update_form = UpdateVendorForm()
+def add_vendor_profile(request):
+    add_form = AddVendorForm()
     if request.method == "POST":
-        update_form = UpdateVendorForm(request.POST,request.FILES)
-        if(update_form.is_valid()):
+        add_form = AddVendorForm(request.POST,request.FILES)
+        if(add_form.is_valid()):
             vendor = User.objects.get(id=request.user.id)
-            updated_profile = update_form.save()
+            updated_profile = add_form.save()
             updated_profile.Vendor_ID = vendor
+            updated_profile.First_name = request.user.first_name
+            updated_profile.Surname = request.user.last_name
+            updated_profile.Email = request.user.email
             updated_profile.save()
             return redirect("vendor_profile")
-    return render(request, "vendors/update-vendor.html",{"update_form":update_form})
+    return render(request, "vendors/add-vendor.html",{"add_form":add_form})
 
 @vendor_only
 def vendor_profile(request):
-    v_profile = VendorProfile.objects.get(Vendor_ID=request.user.id)
-    return render(request, "vendors/vendor-profile.html",{"v_profile":v_profile})
+    v_profile = VendorProfile.objects.filter(Vendor_ID=request.user.id)
+    print(len(v_profile))
+    if(len(v_profile) == 0):
+        return redirect("add_vendor_profile")
+    else:
+        return render(request, "vendors/vendor-profile.html",{"v_profile":v_profile})
+
+
+@vendor_only
+def view_scraps(request):
+    scraps = Scrap.objects.filter(status="Added")
+    return render(request, "vendors/view-scraps.html",{"scraps":scraps})
+
+    
+@vendor_only
+def select_scraps(request,scrap_id):
+    scrap = Scrap.objects.get(id=scrap_id)
+    scrap.status = "Selected"
+    return redirect("view_scraps")
+
