@@ -27,4 +27,7 @@ class Scrap(models.Model):
     Pin_code = models.CharField(max_length=200,null=True,blank=True)
     Scrap_Image = models.ImageField(upload_to="scraps",null=True,blank=True)
     status = models.CharField(max_length=200,null=True,blank=True)
+    vendorId = models.CharField(max_length=200,null=True,blank=True)
+    vendorName = models.CharField(max_length=200,null=True,blank=True)
+    PickUpDate = models.CharField(max_length=200,null=True,blank=True)
     

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+import datetime
 
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login, logout
@@ -89,7 +90,6 @@ def add_vendor_profile(request):
 @vendor_only
 def vendor_profile(request):
     v_profile = VendorProfile.objects.filter(Vendor_ID=request.user.id)
-    print(len(v_profile))
     if(len(v_profile) == 0):
         return redirect("add_vendor_profile")
     else:
@@ -98,13 +98,34 @@ def vendor_profile(request):
 
 @vendor_only
 def view_scraps(request):
+    v_profile = VendorProfile.objects.filter(Vendor_ID=request.user.id)
+    if(len(v_profile)==0):
+        return redirect("add_vendor_profile")
     scraps = Scrap.objects.filter(status="Added")
     return render(request, "vendors/view-scraps.html",{"scraps":scraps})
 
     
 @vendor_only
-def select_scraps(request,scrap_id):
+def select_scrap(request,scrap_id):
     scrap = Scrap.objects.get(id=scrap_id)
     scrap.status = "Selected"
-    return redirect("view_scraps")
+    scrap.vendorId = request.user.id
+    scrap.vendorName = request.user.username
+    scrap.save()
+    return redirect("orders")
+@vendor_only
+def pickup_scrap(request,scrap_id):
+    scrap = Scrap.objects.get(id=scrap_id)
+    scrap.status = "Picked Up"
+    scrap.PickUpDate = datetime.datetime.now().strftime("%x")
+    scrap.save()
+    return redirect("orders")
 
+@vendor_only
+def orders(request):
+    scraps = Scrap.objects.filter(vendorId=request.user.id,status="Selected")
+    return render(request, "vendors/orders.html",{"scraps":scraps})
+@vendor_only
+def view_pickups(request):
+    scraps = Scrap.objects.filter(vendorId=request.user.id,status="Picked Up")
+    return render(request, "vendors/pickups.html",{"scraps":scraps})

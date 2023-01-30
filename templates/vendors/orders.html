@@ -1,0 +1,20 @@
+{% extends "vendors/vendor-home.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1 class="text-muted text-center">ORDERS</h1>
+    <div class="card container shadow bg-body rounded p-5 mb-3">
+        {% for scrap in scraps %}
+        <div
+            class="d-flex align-items-center mb-3 justify-content-between py-4 bd-highlight border-bottom border-success">
+            <span class="text-muted"> 0derid {{scrap.id}}</span>
+            <span class="fw-bold text-success">{{scrap.waste_type}}</span>
+            <span class="fw-bold text-primary">Location {{scrap.City}}</span>
+            <a class="btn btn-outline-primary top-0 end-0 shadow none" href="{% url 'pickup_scrap' scrap.id  %}"
+                onclick="return confirm('Confirm Pickup?')">Pickup</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

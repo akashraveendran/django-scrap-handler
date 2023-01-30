@@ -6,10 +6,8 @@
 
 <div class="container mb-3">
     <div class="row ">
-
         {% for scrap in scraps %}
         <div class="col-4 my-5">
-
             <div class="card shadow p-2 rounded" style="min-height: 33rem;">
                 <div class="card-image">
                     <img src="{{scrap.Scrap_Image.url}}" alt="" style="width: 100%;">
@@ -32,8 +30,8 @@
 
 
                     <!-- create an order on select with user , vendr and and scrap details -->
-                    <a class="btn btn-success fw-bold " href="{% url 'delete_scrap' scrap.id  %}"
-                        onclick="return confirm('Are you sure you want to delete this item?')">Select For Pickup</a>
+                    <a class="btn btn-success fw-bold " href="{% url 'select_scrap' scrap.id  %}"
+                        onclick="return confirm('Are you sure you want to Select this item?')">Select For Pickup</a>
 
                 </div>
             </div>

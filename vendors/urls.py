@@ -13,4 +13,12 @@ urlpatterns = [
          name="add_vendor_profile"),
     path('view-scraps/', views.view_scraps,
          name="view_scraps"),
+    path('select-scrap/<int:scrap_id>', views.select_scrap,
+         name="select_scrap"),
+    path('pickup-scrap/<int:scrap_id>', views.pickup_scrap,
+         name="pickup_scrap"),
+    path('my-orders/', views.orders,
+         name="orders"),
+    path('my-pickups/', views.view_pickups,
+         name="view_pickups"),
 ]
