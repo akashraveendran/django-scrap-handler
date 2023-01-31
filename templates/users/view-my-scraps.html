@@ -32,6 +32,7 @@
                     <p class="card-text fw-bold text-muted">
                         SCRAP STATUS : <span class="text-success"> {{scrap.status}}</span>
                     </p>
+                    <a href="{% url 'vendor_profile' scrap.vendorId %}" class="btn btn-outline-primary">View Vendor </a>
                     {% endif %}
                 </div>
             </div>

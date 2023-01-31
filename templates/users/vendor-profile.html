@@ -1,0 +1,84 @@
+{% extends "users/user-home.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded mt-5"
+                    width="150px" height="200px" src="{{v_profile.Profile_Image.url}}"><span
+                    class="font-weight-bold">{{request.user.username}}</span><span
+                    class="text-black50">{{request.user.email}}</span><span>
+                </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 ">
+                <div class="d-flex justify-content-between align-itemscenter mb-3">
+                    <h4 class="text-right"> Vendor Profile </h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels text-muted">Name </label>
+                        <span class="fw-bold fs-5 ms-2">{{v_profile.First_name}}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels text-muted">Surname </label>
+                        <span class="fw-bold fs-5 ms-2">{{v_profile.Surname}}</span>
+                    </div>
+
+                    <div class="col-md-12 mt-3">
+                        <label class="labels text-muted">shop name</label>
+                        <span class="fw-bold fs-5 ms-2">{{v_profile.shop_name}}</span>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label class="labels text-muted">Mobile Number</label>
+                        <span class="fw-bold fs-5 ms-2">{{v_profile.Phone_Number}}</span>
+
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label class="labels text-muted">Licence no</label>
+                        <span class="fw-bold fs-5 ms-2">{{v_profile.License_No}}</span>
+
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label class="labels text-muted">Gst no</label>
+                        <span class="fw-bold fs-5 ms-2">{{v_profile.GST_No}}</span>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label class="labels text-muted">Postcode</label>
+                        <span class="fw-bold fs-5 ms-2">{{v_profile.Postcode}}</span>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label class="labels text-muted">Area</label>
+                        <span class="fw-bold fs-5 ms-2">{{v_profile.Area}}</span>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label class="labels text-muted">Email ID</label>
+                        <span class="fw-bold fs-5 ms-2">{{v_profile.Email}}</span>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label class="labels text-muted">district</label>
+                            <span class="fw-bold fs-5 ms-2">{{v_profile.District}}</span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels text-muted">State/Region</label>
+                            <span class="fw-bold fs-5 ms-2">{{v_profile.State}}</span>
+                        </div>
+                    </div>
+                    <!-- <div class="mt-5 text-center">
+                                                <button class="btn btnprimary profile-button" type="button">Save Profile
+                                                </button>
+                                        </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+{% endblock %}

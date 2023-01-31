@@ -1,0 +1,20 @@
+{% extends "users/user-home.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1 class="text-muted text-center mb-4">PICKED UP SCRAPS</h1>
+    <div class="card container shadow bg-body rounded p-5 mb-3">
+        {% for scrap in scraps %}
+        <div
+            class="d-flex align-items-center mb-3 justify-content-between py-4 bd-highlight border-bottom border-success">
+            <!-- <span class="text-muted"> 0derid <span class="fw-bold">{{scrap.id}}</span></span> -->
+            <span class="fw-bold ">Scraps <span class="fw-bold text-success">{{scrap.waste_type}}</span></span>
+            <span class="fw-bold ">Picked By <span class="fw-bold text-success">{{scrap.vendorName}}</span></span>
+            <span class="text-muted">Status <span class="fw-bold text-success">{{scrap.status}}</span></span>
+            <span class="text-muted">Picked Up on <span class="fw-bold text-success">{{scrap.PickUpDate}}</span></span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

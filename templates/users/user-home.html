@@ -37,7 +37,9 @@
                             Account
                         </a>
                         <ul class="dropdown-menu mb-2 bg-success text-white" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item text-dark" href="">My profile</a></li>
+                            <li><a class="dropdown-item text-dark" href="{% url 'view_user_pickups' %}">Orders Picked
+                                    Up</a>
+                            </li>
                             <li><a class="dropdown-item text-dark" href="#">about</a></li>
                         </ul>
                     </li>
@@ -57,7 +59,7 @@
                 Managment<br>system</h1>
 
             <a href="{% url 'select_scrap' %}"><button
-                    class="btn btn-outline-success rounded-pill border border-3 border-success ">Select your
+                    class="btn btn-outline-success rounded-pill border border-3 border-success mt-4">Select your
                     scrap</button></a>
         </div>
         <div class="text-center p-5" id="ht">

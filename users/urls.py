@@ -12,5 +12,7 @@ urlpatterns = [
     path('select-scrap/', views.select_scrap, name="select_scrap"),
     path('confirm-scrap/<str:waste_type>', views.confirm_scrap, name="confirm_scrap"),
     path('view-my-scraps/', views.view_my_scraps, name="view_my_scraps"),
+    path('view-pickups/', views.view_user_pickups, name="view_user_pickups"),
+    path('view-profile/<int:id>', views.vendor_profile, name="vendor_profile"),
     path('delete-my-scrap/<int:id>', views.delete_scrap, name="delete_scrap"),
 ]

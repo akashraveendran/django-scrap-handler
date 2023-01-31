@@ -9,6 +9,7 @@ from .decorators import user_only, not_auth_user
 
 from .models import Scrap
 from .forms import AddScrapForm
+from vendors.models import VendorProfile
 
 # Create your views here.
 
@@ -68,15 +69,16 @@ def signin(request):
             return redirect("signin")
     return render(request, "users/signin.html")
 
-
+@user_only
 def signout(request):
     logout(request)
     return redirect("signin")
 
-
+@user_only
 def update_user_profile(request):
     return render(request, "users/update-user.html")
 
+@user_only
 def select_scrap(request):
     
     if request.method == "POST":
@@ -85,7 +87,7 @@ def select_scrap(request):
 
     return render(request, "users/scrap_selecter.html")
 
-
+@user_only
 def confirm_scrap(request,waste_type):
     add_scrap_form = AddScrapForm()
     if request.method == "POST":
@@ -102,11 +104,23 @@ def confirm_scrap(request,waste_type):
             return redirect("view_my_scraps")
     return render(request, "users/s_confirm.html",{"add_scrap_form":add_scrap_form})
 
-
+@user_only
 def view_my_scraps(request):
     all_scraps = Scrap.objects.filter(user_ID=request.user.id)
     return render(request, "users/view-my-scraps.html",{"all_scraps":all_scraps})
 
+@user_only
 def delete_scrap(request,id):
     Scrap.objects.filter(id=id).delete()
     return redirect("view_my_scraps")
+
+@user_only
+def view_user_pickups(request):
+    scraps = Scrap.objects.filter(user_ID=request.user.id,status="Picked Up")
+    return render(request, "users/pickups.html",{"scraps":scraps})
+
+@user_only
+def vendor_profile(request,id):
+    v_profile = VendorProfile.objects.filter(Vendor_ID=id)
+    print(v_profile)
+    return render(request, "users/vendor-profile.html",{"v_profile":v_profile[0]})

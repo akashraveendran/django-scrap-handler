@@ -90,10 +90,11 @@ def add_vendor_profile(request):
 @vendor_only
 def vendor_profile(request):
     v_profile = VendorProfile.objects.filter(Vendor_ID=request.user.id)
+    print(v_profile)
     if(len(v_profile) == 0):
         return redirect("add_vendor_profile")
     else:
-        return render(request, "vendors/vendor-profile.html",{"v_profile":v_profile})
+        return render(request, "vendors/vendor-profile.html",{"v_profile":v_profile[0]})
 
 
 @vendor_only
