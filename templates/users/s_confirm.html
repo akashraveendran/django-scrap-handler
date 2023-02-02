@@ -7,6 +7,10 @@
   <form class="row g-3 needs-validation p-5 shadow-lg" method="post" enctype="multipart/form-data">
     {%csrf_token%}
     <input type="hidden" name="id" value="{{ id }}">
+    <div class="col-md-6">
+      <label for="validationTooltip01" class="form-label">Email</label>
+      <input type="text" class="form-control" value="{{request.user.email}}">
+    </div>
     {% for field in add_scrap_form %}
     <div class="col-md-6 position-relative">
       <label for="validationTooltip01" class="form-label">{{field.label}}</label>
